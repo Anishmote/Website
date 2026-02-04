@@ -1,0 +1,1299 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>John Doe | Business Analyst Portfolio</title>
+    <meta name="description" content="Business Analyst specializing in data-driven insights, process optimization, and strategic solutions. 5+ years of experience transforming complex business challenges.">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <style>
+        :root {
+            /* Navy & Gold Professional Theme */
+            --background: 224 67% 6%;
+            --foreground: 0 0% 98%;
+            --card: 224 60% 10%;
+            --card-foreground: 0 0% 98%;
+            --primary: 43 100% 50%;
+            --primary-foreground: 224 67% 6%;
+            --secondary: 224 40% 18%;
+            --secondary-foreground: 0 0% 98%;
+            --muted: 224 30% 15%;
+            --muted-foreground: 220 15% 65%;
+            --accent: 43 100% 50%;
+            --accent-foreground: 224 67% 6%;
+            --border: 224 30% 20%;
+            --gold: 43 100% 50%;
+            --gold-light: 43 100% 65%;
+            --gold-dark: 43 100% 40%;
+            --navy: 224 67% 6%;
+            --navy-light: 224 50% 15%;
+            --navy-dark: 224 67% 4%;
+        }
+
+        .light {
+            --background: 0 0% 98%;
+            --foreground: 224 67% 10%;
+            --card: 0 0% 100%;
+            --card-foreground: 224 67% 10%;
+            --muted: 220 15% 95%;
+            --muted-foreground: 224 30% 40%;
+            --border: 220 15% 88%;
+            --gold: 43 100% 45%;
+            --gold-light: 43 100% 55%;
+            --navy: 224 67% 10%;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: hsl(var(--background));
+            color: hsl(var(--foreground));
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+        }
+
+        ::selection {
+            background: hsl(var(--gold) / 0.3);
+            color: hsl(var(--foreground));
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: hsl(var(--background));
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: hsl(var(--muted));
+            border-radius: 5px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: hsl(var(--gold));
+        }
+
+        /* Utility Classes */
+        .text-gradient-gold {
+            background: linear-gradient(135deg, hsl(43 100% 50%), hsl(38 100% 45%));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .bg-hero-gradient {
+            background: radial-gradient(ellipse at top, hsl(224 50% 12%) 0%, hsl(224 67% 6%) 60%);
+        }
+
+        .glass-card {
+            background: hsl(var(--card) / 0.8);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .glow-gold {
+            box-shadow: 0 4px 30px -5px hsl(43 100% 50% / 0.3);
+        }
+
+        .shadow-card {
+            box-shadow: 0 10px 40px -10px hsl(0 0% 0% / 0.5);
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        @keyframes pulse-slow {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        @keyframes shimmer {
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
+        }
+
+        @keyframes rotate-border {
+            100% { transform: rotate(360deg); }
+        }
+
+        @keyframes bounce-slow {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .animate-fadeIn {
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .animate-pulse-slow {
+            animation: pulse-slow 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+
+        .animate-bounce-slow {
+            animation: bounce-slow 2s ease-in-out infinite;
+        }
+
+        /* Animated Border */
+        .animated-border {
+            position: relative;
+            border-radius: 50%;
+        }
+
+        .animated-border::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 50%;
+            padding: 3px;
+            background: linear-gradient(135deg, hsl(43 100% 50%), hsl(38 100% 45%));
+            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            mask-composite: exclude;
+            -webkit-mask-composite: xor;
+        }
+
+        /* Loading Screen */
+        .loading-screen {
+            position: fixed;
+            inset: 0;
+            background: hsl(var(--background));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            transition: opacity 0.5s, visibility 0.5s;
+        }
+
+        .loading-screen.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .loader {
+            width: 50px;
+            height: 50px;
+            border: 3px solid hsl(var(--muted));
+            border-top-color: hsl(var(--gold));
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 50;
+            transition: all 0.3s ease;
+        }
+
+        .navbar.scrolled {
+            background: hsl(var(--background) / 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-link {
+            position: relative;
+            color: hsl(var(--muted-foreground));
+            transition: color 0.3s;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: hsl(var(--gold));
+            transition: width 0.3s;
+        }
+
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 100%;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: hsl(var(--foreground));
+        }
+
+        /* Mobile Menu */
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 80%;
+            max-width: 300px;
+            height: 100vh;
+            background: hsl(var(--card));
+            transition: right 0.3s ease;
+            z-index: 60;
+            padding: 2rem;
+        }
+
+        .mobile-menu.active {
+            right: 0;
+        }
+
+        .overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.5);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+            z-index: 55;
+        }
+
+        .overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* Skill Progress Bar */
+        .skill-progress {
+            position: relative;
+            overflow: hidden;
+            border-radius: 9999px;
+            background: hsl(var(--muted));
+            height: 12px;
+        }
+
+        .skill-progress-bar {
+            height: 100%;
+            border-radius: 9999px;
+            background: linear-gradient(135deg, hsl(43 100% 50%), hsl(38 100% 45%));
+            transition: width 1.5s ease-out;
+        }
+
+        /* Floating Buttons */
+        .floating-buttons {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            z-index: 40;
+        }
+
+        .floating-btn {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: hsl(var(--gold));
+            color: hsl(var(--navy));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .floating-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 25px hsl(43 100% 50% / 0.4);
+        }
+
+        /* Cards */
+        .project-card, .service-card, .cert-card {
+            background: hsl(var(--card));
+            border: 1px solid hsl(var(--border));
+            border-radius: 1rem;
+            overflow: hidden;
+            transition: all 0.3s;
+        }
+
+        .project-card:hover, .service-card:hover, .cert-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 40px -10px hsl(0 0% 0% / 0.5);
+            border-color: hsl(var(--gold) / 0.5);
+        }
+
+        /* Form Inputs */
+        input, textarea {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            background: hsl(var(--card));
+            border: 1px solid hsl(var(--border));
+            border-radius: 0.5rem;
+            color: hsl(var(--foreground));
+            transition: all 0.3s;
+        }
+
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: hsl(var(--gold));
+            box-shadow: 0 0 0 3px hsl(var(--gold) / 0.1);
+        }
+
+        /* Buttons */
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            transition: all 0.3s;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary {
+            background: hsl(var(--gold));
+            color: hsl(var(--navy));
+        }
+
+        .btn-primary:hover {
+            background: hsl(var(--gold-light));
+            box-shadow: 0 4px 30px -5px hsl(43 100% 50% / 0.4);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 1px solid hsl(var(--gold) / 0.5);
+            color: hsl(var(--gold));
+        }
+
+        .btn-outline:hover {
+            background: hsl(var(--gold) / 0.1);
+        }
+
+        /* Timeline */
+        .timeline-item {
+            position: relative;
+            padding-left: 3rem;
+            padding-bottom: 2rem;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 2px;
+            height: 100%;
+            background: hsl(var(--border));
+        }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            left: -6px;
+            top: 0;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: hsl(var(--gold));
+            border: 3px solid hsl(var(--background));
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .floating-buttons {
+                bottom: 1rem;
+                right: 1rem;
+            }
+        }
+
+        /* Fade in on scroll */
+        .fade-in-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s, transform 0.6s;
+        }
+
+        .fade-in-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <!-- Logo -->
+                <a href="#home" class="text-2xl font-display font-bold">
+                    <span class="text-gradient-gold">John Doe</span>
+                </a>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center gap-8">
+                    <a href="#home" class="nav-link active">Home</a>
+                    <a href="#about" class="nav-link">About</a>
+                    <a href="#skills" class="nav-link">Skills</a>
+                    <a href="#experience" class="nav-link">Experience</a>
+                    <a href="#projects" class="nav-link">Projects</a>
+                    <a href="#services" class="nav-link">Services</a>
+                    <a href="#contact" class="nav-link">Contact</a>
+                    
+                    <!-- Theme Toggle -->
+                    <button id="themeToggle" class="p-2 rounded-lg hover:bg-muted transition" aria-label="Toggle theme">
+                        <i data-lucide="sun" class="w-5 h-5"></i>
+                    </button>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobileMenuBtn" class="md:hidden p-2" aria-label="Toggle menu">
+                    <i data-lucide="menu" class="w-6 h-6"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="overlay" id="overlay"></div>
+    <div class="mobile-menu" id="mobileMenu">
+        <button id="closeMobileMenu" class="absolute top-4 right-4" aria-label="Close menu">
+            <i data-lucide="x" class="w-6 h-6"></i>
+        </button>
+        
+        <div class="flex flex-col gap-6 mt-12">
+            <a href="#home" class="text-lg mobile-nav-link">Home</a>
+            <a href="#about" class="text-lg mobile-nav-link">About</a>
+            <a href="#skills" class="text-lg mobile-nav-link">Skills</a>
+            <a href="#experience" class="text-lg mobile-nav-link">Experience</a>
+            <a href="#projects" class="text-lg mobile-nav-link">Projects</a>
+            <a href="#services" class="text-lg mobile-nav-link">Services</a>
+            <a href="#contact" class="text-lg mobile-nav-link">Contact</a>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="relative min-h-screen flex items-center justify-center overflow-hidden bg-hero-gradient pt-20">
+            <!-- Animated Background Elements -->
+            <div class="absolute inset-0 overflow-hidden opacity-20">
+                <div class="absolute top-1/4 right-1/4 w-96 h-96 rounded-full blur-3xl animate-pulse-slow" style="background: radial-gradient(circle, hsl(43 100% 50% / 0.1), transparent 70%);"></div>
+            </div>
+
+            <div class="container mx-auto px-6 relative z-10">
+                <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
+                    <!-- Profile Image -->
+                    <div class="relative animate-fadeIn">
+                        <div class="relative w-64 h-64 lg:w-80 lg:h-80 rounded-full animated-border">
+                            <div class="absolute inset-3 rounded-full overflow-hidden z-10 bg-gradient-to-br from-navy-light to-navy flex items-center justify-center">
+                                <div class="text-6xl font-display font-bold text-gradient-gold">JD</div>
+                            </div>
+                        </div>
+                        <!-- Badge -->
+                        <div class="absolute -bottom-2 -right-2 glass-card px-4 py-2 rounded-full glow-gold animate-float">
+                            <span class="text-sm font-medium" style="color: hsl(var(--gold))">Available for hire</span>
+                        </div>
+                    </div>
+
+                    <!-- Content -->
+                    <div class="flex-1 text-center lg:text-left">
+                        <p class="font-medium mb-4 tracking-wider animate-fadeIn" style="color: hsl(var(--gold)); animation-delay: 0.2s;">
+                            HELLO, I'M
+                        </p>
+
+                        <h1 class="text-5xl md:text-6xl lg:text-7xl font-display font-bold mb-6 animate-fadeIn" style="animation-delay: 0.3s;">
+                            John <span class="text-gradient-gold">Doe</span>
+                        </h1>
+
+                        <div class="text-xl md:text-2xl mb-8 h-16 animate-fadeIn" style="color: hsl(var(--muted-foreground)); animation-delay: 0.4s;">
+                            <span id="typewriter"></span>
+                        </div>
+
+                        <p class="text-lg max-w-xl mb-10 animate-fadeIn" style="color: hsl(var(--muted-foreground)); animation-delay: 0.5s;">
+                            Transforming complex business challenges into actionable insights and strategic solutions with 5+ years of experience.
+                        </p>
+
+                        <!-- CTA Buttons -->
+                        <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-10 animate-fadeIn" style="animation-delay: 0.6s;">
+                            <a href="#projects" class="btn btn-primary glow-gold">
+                                View Projects
+                                <i data-lucide="arrow-down" class="w-4 h-4"></i>
+                            </a>
+                            <button class="btn btn-outline">
+                                <i data-lucide="download" class="w-4 h-4"></i>
+                                Download Resume
+                            </button>
+                        </div>
+
+                        <!-- Social Links -->
+                        <div class="flex gap-4 justify-center lg:justify-start animate-fadeIn" style="animation-delay: 0.7s;">
+                            <a href="https://linkedin.com" target="_blank" class="p-3 rounded-full border hover:border-gold transition-all duration-300" style="border-color: hsl(var(--border));">
+                                <i data-lucide="linkedin" class="w-5 h-5"></i>
+                            </a>
+                            <a href="https://github.com" target="_blank" class="p-3 rounded-full border hover:border-gold transition-all duration-300" style="border-color: hsl(var(--border));">
+                                <i data-lucide="github" class="w-5 h-5"></i>
+                            </a>
+                            <a href="mailto:contact@example.com" class="p-3 rounded-full border hover:border-gold transition-all duration-300" style="border-color: hsl(var(--border));">
+                                <i data-lucide="mail" class="w-5 h-5"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Scroll Indicator -->
+                <div class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-bounce-slow" style="color: hsl(var(--muted-foreground));">
+                    <span class="text-sm">Scroll Down</span>
+                    <div class="w-6 h-10 rounded-full border-2 flex justify-center p-2" style="border-color: hsl(var(--muted-foreground) / 0.5);">
+                        <div class="w-1.5 h-1.5 rounded-full" style="background: hsl(var(--gold));"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="py-24 lg:py-32 relative overflow-hidden" style="background: hsl(var(--background));">
+            <div class="container mx-auto px-6">
+                <!-- Section Header -->
+                <div class="text-center mb-16 fade-in-on-scroll">
+                    <span class="font-medium tracking-wider" style="color: hsl(var(--gold));">ABOUT ME</span>
+                    <h2 class="text-4xl md:text-5xl font-display font-bold mt-4 mb-6">
+                        Driving Business Success Through
+                        <span class="text-gradient-gold block">Data-Driven Insights</span>
+                    </h2>
+                </div>
+
+                <div class="grid lg:grid-cols-2 gap-16 items-center">
+                    <!-- Left Side - Bio & Stats -->
+                    <div class="fade-in-on-scroll">
+                        <p class="text-lg mb-6 leading-relaxed" style="color: hsl(var(--muted-foreground));">
+                            I'm a passionate Business Analyst with over 5 years of experience transforming complex 
+                            business challenges into streamlined, efficient solutions. My expertise lies in bridging 
+                            the gap between business needs and technical implementations.
+                        </p>
+                        <p class="text-lg mb-8 leading-relaxed" style="color: hsl(var(--muted-foreground));">
+                            From conducting comprehensive requirements analysis to designing data-driven dashboards, 
+                            I specialize in delivering measurable business value. My approach combines analytical 
+                            rigor with creative problem-solving to help organizations achieve their strategic goals.
+                        </p>
+
+                        <!-- Stats Grid -->
+                        <div class="grid grid-cols-2 gap-6">
+                            <div class="glass-card p-6 rounded-xl hover:glow-gold transition-all duration-300">
+                                <i data-lucide="briefcase" class="w-8 h-8 mb-3" style="color: hsl(var(--gold));"></i>
+                                <div class="text-3xl font-bold mb-1"><span class="counter" data-target="50">0</span>+</div>
+                                <p class="text-sm" style="color: hsl(var(--muted-foreground));">Projects Completed</p>
+                            </div>
+                            <div class="glass-card p-6 rounded-xl hover:glow-gold transition-all duration-300">
+                                <i data-lucide="award" class="w-8 h-8 mb-3" style="color: hsl(var(--gold));"></i>
+                                <div class="text-3xl font-bold mb-1"><span class="counter" data-target="5">0</span>+</div>
+                                <p class="text-sm" style="color: hsl(var(--muted-foreground));">Years Experience</p>
+                            </div>
+                            <div class="glass-card p-6 rounded-xl hover:glow-gold transition-all duration-300">
+                                <i data-lucide="users" class="w-8 h-8 mb-3" style="color: hsl(var(--gold));"></i>
+                                <div class="text-3xl font-bold mb-1"><span class="counter" data-target="30">0</span>+</div>
+                                <p class="text-sm" style="color: hsl(var(--muted-foreground));">Happy Clients</p>
+                            </div>
+                            <div class="glass-card p-6 rounded-xl hover:glow-gold transition-all duration-300">
+                                <i data-lucide="trending-up" class="w-8 h-8 mb-3" style="color: hsl(var(--gold));"></i>
+                                <div class="text-3xl font-bold mb-1"><span class="counter" data-target="2">0</span>M+</div>
+                                <p class="text-sm" style="color: hsl(var(--muted-foreground));">Dollars Saved</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Side - Skills Progress -->
+                    <div class="fade-in-on-scroll space-y-6">
+                        <h3 class="text-2xl font-display font-bold mb-8">Core Competencies</h3>
+                        
+                        <div class="space-y-6">
+                            <div>
+                                <div class="flex justify-between mb-2">
+                                    <span class="font-medium">Requirements Analysis</span>
+                                    <span class="font-semibold" style="color: hsl(var(--gold));">95%</span>
+                                </div>
+                                <div class="skill-progress">
+                                    <div class="skill-progress-bar" data-width="95"></div>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <div class="flex justify-between mb-2">
+                                    <span class="font-medium">Data Visualization</span>
+                                    <span class="font-semibold" style="color: hsl(var(--gold));">90%</span>
+                                </div>
+                                <div class="skill-progress">
+                                    <div class="skill-progress-bar" data-width="90"></div>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <div class="flex justify-between mb-2">
+                                    <span class="font-medium">Process Optimization</span>
+                                    <span class="font-semibold" style="color: hsl(var(--gold));">88%</span>
+                                </div>
+                                <div class="skill-progress">
+                                    <div class="skill-progress-bar" data-width="88"></div>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <div class="flex justify-between mb-2">
+                                    <span class="font-medium">Stakeholder Management</span>
+                                    <span class="font-semibold" style="color: hsl(var(--gold));">92%</span>
+                                </div>
+                                <div class="skill-progress">
+                                    <div class="skill-progress-bar" data-width="92"></div>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <div class="flex justify-between mb-2">
+                                    <span class="font-medium">Strategic Planning</span>
+                                    <span class="font-semibold" style="color: hsl(var(--gold));">85%</span>
+                                </div>
+                                <div class="skill-progress">
+                                    <div class="skill-progress-bar" data-width="85"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Quote -->
+                        <blockquote class="mt-10 pl-6 border-l-4 italic" style="border-color: hsl(var(--gold)); color: hsl(var(--muted-foreground));">
+                            "Every business problem is an opportunity waiting to be transformed into value."
+                        </blockquote>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="py-24 lg:py-32" style="background: hsl(var(--card));">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16 fade-in-on-scroll">
+                    <span class="font-medium tracking-wider" style="color: hsl(var(--gold));">TECHNICAL SKILLS</span>
+                    <h2 class="text-4xl md:text-5xl font-display font-bold mt-4">
+                        Tools & <span class="text-gradient-gold">Technologies</span>
+                    </h2>
+                </div>
+
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <!-- Analytics Tools -->
+                    <div class="glass-card p-6 rounded-xl hover:glow-gold transition-all duration-300 fade-in-on-scroll">
+                        <div class="w-12 h-12 rounded-lg flex items-center justify-center mb-4" style="background: hsl(var(--gold) / 0.1);">
+                            <i data-lucide="bar-chart-3" class="w-6 h-6" style="color: hsl(var(--gold));"></i>
+                        </div>
+                        <h3 class="font-display font-semibold text-lg mb-2">Analytics</h3>
+                        <ul class="space-y-2 text-sm" style="color: hsl(var(--muted-foreground));">
+                            <li>• Power BI</li>
+                            <li>• Tableau</li>
+                            <li>• Excel (Advanced)</li>
+                            <li>• Google Analytics</li>
+                        </ul>
+                    </div>
+
+                    <!-- Database -->
+                    <div class="glass-card p-6 rounded-xl hover:glow-gold transition-all duration-300 fade-in-on-scroll">
+                        <div class="w-12 h-12 rounded-lg flex items-center justify-center mb-4" style="background: hsl(var(--gold) / 0.1);">
+                            <i data-lucide="database" class="w-6 h-6" style="color: hsl(var(--gold));"></i>
+                        </div>
+                        <h3 class="font-display font-semibold text-lg mb-2">Database</h3>
+                        <ul class="space-y-2 text-sm" style="color: hsl(var(--muted-foreground));">
+                            <li>• SQL</li>
+                            <li>• MySQL</li>
+                            <li>• PostgreSQL</li>
+                            <li>• MongoDB</li>
+                        </ul>
+                    </div>
+
+                    <!-- Programming -->
+                    <div class="glass-card p-6 rounded-xl hover:glow-gold transition-all duration-300 fade-in-on-scroll">
+                        <div class="w-12 h-12 rounded-lg flex items-center justify-center mb-4" style="background: hsl(var(--gold) / 0.1);">
+                            <i data-lucide="code" class="w-6 h-6" style="color: hsl(var(--gold));"></i>
+                        </div>
+                        <h3 class="font-display font-semibold text-lg mb-2">Programming</h3>
+                        <ul class="space-y-2 text-sm" style="color: hsl(var(--muted-foreground));">
+                            <li>• Python</li>
+                            <li>• R</li>
+                            <li>• JavaScript</li>
+                            <li>• VBA</li>
+                        </ul>
+                    </div>
+
+                    <!-- Project Management -->
+                    <div class="glass-card p-6 rounded-xl hover:glow-gold transition-all duration-300 fade-in-on-scroll">
+                        <div class="w-12 h-12 rounded-lg flex items-center justify-center mb-4" style="background: hsl(var(--gold) / 0.1);">
+                            <i data-lucide="clipboard-list" class="w-6 h-6" style="color: hsl(var(--gold));"></i>
+                        </div>
+                        <h3 class="font-display font-semibold text-lg mb-2">Project Mgmt</h3>
+                        <ul class="space-y-2 text-sm" style="color: hsl(var(--muted-foreground));">
+                            <li>• JIRA</li>
+                            <li>• Confluence</li>
+                            <li>• Agile/Scrum</li>
+                            <li>• Trello</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section id="experience" class="py-24 lg:py-32" style="background: hsl(var(--background));">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16 fade-in-on-scroll">
+                    <span class="font-medium tracking-wider" style="color: hsl(var(--gold));">EXPERIENCE</span>
+                    <h2 class="text-4xl md:text-5xl font-display font-bold mt-4">
+                        Professional <span class="text-gradient-gold">Journey</span>
+                    </h2>
+                </div>
+
+                <div class="max-w-3xl mx-auto">
+                    <!-- Timeline Item 1 -->
+                    <div class="timeline-item fade-in-on-scroll">
+                        <div class="glass-card p-6 rounded-xl">
+                            <div class="flex flex-wrap justify-between items-start mb-2">
+                                <h3 class="font-display font-semibold text-xl">Senior Business Analyst</h3>
+                                <span class="text-sm px-3 py-1 rounded-full" style="background: hsl(var(--gold) / 0.1); color: hsl(var(--gold));">2021 - Present</span>
+                            </div>
+                            <p class="font-medium mb-3" style="color: hsl(var(--gold));">Tech Corp Inc.</p>
+                            <p style="color: hsl(var(--muted-foreground));">
+                                Lead business analyst for enterprise-level projects, managing cross-functional teams and delivering data-driven solutions that increased operational efficiency by 35%.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Timeline Item 2 -->
+                    <div class="timeline-item fade-in-on-scroll">
+                        <div class="glass-card p-6 rounded-xl">
+                            <div class="flex flex-wrap justify-between items-start mb-2">
+                                <h3 class="font-display font-semibold text-xl">Business Analyst</h3>
+                                <span class="text-sm px-3 py-1 rounded-full" style="background: hsl(var(--gold) / 0.1); color: hsl(var(--gold));">2019 - 2021</span>
+                            </div>
+                            <p class="font-medium mb-3" style="color: hsl(var(--gold));">Digital Solutions Ltd.</p>
+                            <p style="color: hsl(var(--muted-foreground));">
+                                Conducted requirements gathering and process mapping for multiple clients, resulting in streamlined workflows and cost savings averaging $500K per project.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Timeline Item 3 -->
+                    <div class="timeline-item fade-in-on-scroll">
+                        <div class="glass-card p-6 rounded-xl">
+                            <div class="flex flex-wrap justify-between items-start mb-2">
+                                <h3 class="font-display font-semibold text-xl">Junior Business Analyst</h3>
+                                <span class="text-sm px-3 py-1 rounded-full" style="background: hsl(var(--gold) / 0.1); color: hsl(var(--gold));">2017 - 2019</span>
+                            </div>
+                            <p class="font-medium mb-3" style="color: hsl(var(--gold));">StartUp Innovations</p>
+                            <p style="color: hsl(var(--muted-foreground));">
+                                Supported senior analysts in data collection, analysis, and reporting. Developed expertise in Power BI and SQL while working on diverse projects across multiple industries.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="py-24 lg:py-32" style="background: hsl(var(--card));">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16 fade-in-on-scroll">
+                    <span class="font-medium tracking-wider" style="color: hsl(var(--gold));">PORTFOLIO</span>
+                    <h2 class="text-4xl md:text-5xl font-display font-bold mt-4">
+                        Featured <span class="text-gradient-gold">Projects</span>
+                    </h2>
+                </div>
+
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Project 1 -->
+                    <div class="project-card fade-in-on-scroll">
+                        <div class="h-48 flex items-center justify-center" style="background: linear-gradient(135deg, hsl(224 50% 12%), hsl(224 60% 8%));">
+                            <i data-lucide="trending-up" class="w-16 h-16" style="color: hsl(var(--gold));"></i>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="font-display font-semibold text-xl mb-2">Sales Analytics Dashboard</h3>
+                            <p class="mb-4" style="color: hsl(var(--muted-foreground));">
+                                Interactive Power BI dashboard tracking KPIs and forecasting trends, resulting in 25% revenue increase.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="text-xs px-2 py-1 rounded" style="background: hsl(var(--gold) / 0.1); color: hsl(var(--gold));">Power BI</span>
+                                <span class="text-xs px-2 py-1 rounded" style="background: hsl(var(--gold) / 0.1); color: hsl(var(--gold));">SQL</span>
+                                <span class="text-xs px-2 py-1 rounded" style="background: hsl(var(--gold) / 0.1); color: hsl(var(--gold));">Python</span>
+                            </div>
+                            <a href="#" class="inline-flex items-center gap-2 font-medium" style="color: hsl(var(--gold));">
+                                View Project <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Project 2 -->
+                    <div class="project-card fade-in-on-scroll">
+                        <div class="h-48 flex items-center justify-center" style="background: linear-gradient(135deg, hsl(224 50% 12%), hsl(224 60% 8%));">
+                            <i data-lucide="workflow" class="w-16 h-16" style="color: hsl(var(--gold));"></i>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="font-display font-semibold text-xl mb-2">Process Automation</h3>
+                            <p class="mb-4" style="color: hsl(var(--muted-foreground));">
+                                Streamlined operations workflow reducing processing time by 40% and eliminating manual errors.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="text-xs px-2 py-1 rounded" style="background: hsl(var(--gold) / 0.1); color: hsl(var(--gold));">JIRA</span>
+                                <span class="text-xs px-2 py-1 rounded" style="background: hsl(var(--gold) / 0.1); color: hsl(var(--gold));">Python</span>
+                                <span class="text-xs px-2 py-1 rounded" style="background: hsl(var(--gold) / 0.1); color: hsl(var(--gold));">Excel</span>
+                            </div>
+                            <a href="#" class="inline-flex items-center gap-2 font-medium" style="color: hsl(var(--gold));">
+                                View Project <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Project 3 -->
+                    <div class="project-card fade-in-on-scroll">
+                        <div class="h-48 flex items-center justify-center" style="background: linear-gradient(135deg, hsl(224 50% 12%), hsl(224 60% 8%));">
+                            <i data-lucide="users" class="w-16 h-16" style="color: hsl(var(--gold));"></i>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="font-display font-semibold text-xl mb-2">Customer Segmentation</h3>
+                            <p class="mb-4" style="color: hsl(var(--muted-foreground));">
+                                ML-based customer analysis identifying key segments and improving targeting strategy by 50%.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="text-xs px-2 py-1 rounded" style="background: hsl(var(--gold) / 0.1); color: hsl(var(--gold));">Python</span>
+                                <span class="text-xs px-2 py-1 rounded" style="background: hsl(var(--gold) / 0.1); color: hsl(var(--gold));">R</span>
+                                <span class="text-xs px-2 py-1 rounded" style="background: hsl(var(--gold) / 0.1); color: hsl(var(--gold));">Tableau</span>
+                            </div>
+                            <a href="#" class="inline-flex items-center gap-2 font-medium" style="color: hsl(var(--gold));">
+                                View Project <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="py-24 lg:py-32" style="background: hsl(var(--background));">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16 fade-in-on-scroll">
+                    <span class="font-medium tracking-wider" style="color: hsl(var(--gold));">SERVICES</span>
+                    <h2 class="text-4xl md:text-5xl font-display font-bold mt-4">
+                        What I <span class="text-gradient-gold">Offer</span>
+                    </h2>
+                </div>
+
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Service 1 -->
+                    <div class="service-card p-8 fade-in-on-scroll">
+                        <div class="w-16 h-16 rounded-full flex items-center justify-center mb-6 glow-gold" style="background: hsl(var(--gold));">
+                            <i data-lucide="search" class="w-8 h-8" style="color: hsl(var(--navy));"></i>
+                        </div>
+                        <h3 class="font-display font-semibold text-2xl mb-4">Requirements Analysis</h3>
+                        <p style="color: hsl(var(--muted-foreground));">
+                            Comprehensive business requirements gathering and documentation to ensure project success.
+                        </p>
+                    </div>
+
+                    <!-- Service 2 -->
+                    <div class="service-card p-8 fade-in-on-scroll">
+                        <div class="w-16 h-16 rounded-full flex items-center justify-center mb-6 glow-gold" style="background: hsl(var(--gold));">
+                            <i data-lucide="bar-chart-2" class="w-8 h-8" style="color: hsl(var(--navy));"></i>
+                        </div>
+                        <h3 class="font-display font-semibold text-2xl mb-4">Data Analytics</h3>
+                        <p style="color: hsl(var(--muted-foreground));">
+                            Transform raw data into actionable insights using advanced analytics and visualization tools.
+                        </p>
+                    </div>
+
+                    <!-- Service 3 -->
+                    <div class="service-card p-8 fade-in-on-scroll">
+                        <div class="w-16 h-16 rounded-full flex items-center justify-center mb-6 glow-gold" style="background: hsl(var(--gold));">
+                            <i data-lucide="git-branch" class="w-8 h-8" style="color: hsl(var(--navy));"></i>
+                        </div>
+                        <h3 class="font-display font-semibold text-2xl mb-4">Process Optimization</h3>
+                        <p style="color: hsl(var(--muted-foreground));">
+                            Identify bottlenecks and streamline workflows to maximize efficiency and reduce costs.
+                        </p>
+                    </div>
+
+                    <!-- Service 4 -->
+                    <div class="service-card p-8 fade-in-on-scroll">
+                        <div class="w-16 h-16 rounded-full flex items-center justify-center mb-6 glow-gold" style="background: hsl(var(--gold));">
+                            <i data-lucide="target" class="w-8 h-8" style="color: hsl(var(--navy));"></i>
+                        </div>
+                        <h3 class="font-display font-semibold text-2xl mb-4">Strategic Planning</h3>
+                        <p style="color: hsl(var(--muted-foreground));">
+                            Develop data-driven strategies aligned with business objectives and market trends.
+                        </p>
+                    </div>
+
+                    <!-- Service 5 -->
+                    <div class="service-card p-8 fade-in-on-scroll">
+                        <div class="w-16 h-16 rounded-full flex items-center justify-center mb-6 glow-gold" style="background: hsl(var(--gold));">
+                            <i data-lucide="users-2" class="w-8 h-8" style="color: hsl(var(--navy));"></i>
+                        </div>
+                        <h3 class="font-display font-semibold text-2xl mb-4">Stakeholder Management</h3>
+                        <p style="color: hsl(var(--muted-foreground));">
+                            Facilitate communication between technical and non-technical teams for project success.
+                        </p>
+                    </div>
+
+                    <!-- Service 6 -->
+                    <div class="service-card p-8 fade-in-on-scroll">
+                        <div class="w-16 h-16 rounded-full flex items-center justify-center mb-6 glow-gold" style="background: hsl(var(--gold));">
+                            <i data-lucide="presentation" class="w-8 h-8" style="color: hsl(var(--navy));"></i>
+                        </div>
+                        <h3 class="font-display font-semibold text-2xl mb-4">Training & Mentoring</h3>
+                        <p style="color: hsl(var(--muted-foreground));">
+                            Empower teams with knowledge transfer and best practices in business analysis.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-24 lg:py-32" style="background: hsl(var(--card));">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16 fade-in-on-scroll">
+                    <span class="font-medium tracking-wider" style="color: hsl(var(--gold));">GET IN TOUCH</span>
+                    <h2 class="text-4xl md:text-5xl font-display font-bold mt-4">
+                        Let's Work <span class="text-gradient-gold">Together</span>
+                    </h2>
+                </div>
+
+                <div class="max-w-3xl mx-auto">
+                    <div class="glass-card p-8 rounded-xl fade-in-on-scroll">
+                        <form id="contactForm" class="space-y-6">
+                            <div class="grid md:grid-cols-2 gap-6">
+                                <div>
+                                    <label class="block mb-2 font-medium">Name</label>
+                                    <input type="text" name="name" required placeholder="Your name">
+                                </div>
+                                <div>
+                                    <label class="block mb-2 font-medium">Email</label>
+                                    <input type="email" name="email" required placeholder="your@email.com">
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <label class="block mb-2 font-medium">Subject</label>
+                                <input type="text" name="subject" required placeholder="Project inquiry">
+                            </div>
+                            
+                            <div>
+                                <label class="block mb-2 font-medium">Message</label>
+                                <textarea name="message" rows="6" required placeholder="Tell me about your project..."></textarea>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary w-full glow-gold">
+                                <i data-lucide="send" class="w-4 h-4"></i>
+                                Send Message
+                            </button>
+                        </form>
+
+                        <!-- Contact Info -->
+                        <div class="grid md:grid-cols-3 gap-6 mt-12 pt-8 border-t" style="border-color: hsl(var(--border));">
+                            <div class="text-center">
+                                <i data-lucide="mail" class="w-6 h-6 mx-auto mb-2" style="color: hsl(var(--gold));"></i>
+                                <p class="text-sm" style="color: hsl(var(--muted-foreground));">contact@johndoe.com</p>
+                            </div>
+                            <div class="text-center">
+                                <i data-lucide="phone" class="w-6 h-6 mx-auto mb-2" style="color: hsl(var(--gold));"></i>
+                                <p class="text-sm" style="color: hsl(var(--muted-foreground));">+1 (555) 123-4567</p>
+                            </div>
+                            <div class="text-center">
+                                <i data-lucide="map-pin" class="w-6 h-6 mx-auto mb-2" style="color: hsl(var(--gold));"></i>
+                                <p class="text-sm" style="color: hsl(var(--muted-foreground));">San Francisco, CA</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-8" style="background: hsl(var(--background)); border-top: 1px solid hsl(var(--border));">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+                <p style="color: hsl(var(--muted-foreground));">
+                    © 2024 John Doe. All rights reserved.
+                </p>
+                <div class="flex gap-6">
+                    <a href="#" style="color: hsl(var(--muted-foreground));" class="hover:text-gold transition">Privacy Policy</a>
+                    <a href="#" style="color: hsl(var(--muted-foreground));" class="hover:text-gold transition">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating Buttons -->
+    <div class="floating-buttons">
+        <button id="scrollToTop" class="floating-btn" aria-label="Scroll to top">
+            <i data-lucide="arrow-up" class="w-5 h-5"></i>
+        </button>
+    </div>
+
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // Loading Screen
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                document.getElementById('loadingScreen').classList.add('hidden');
+            }, 1000);
+        });
+
+        // Theme Toggle
+        const themeToggle = document.getElementById('themeToggle');
+        const html = document.documentElement;
+        
+        // Check for saved theme preference or default to dark
+        const currentTheme = localStorage.getItem('theme') || 'dark';
+        if (currentTheme === 'light') {
+            html.classList.add('light');
+        }
+
+        themeToggle.addEventListener('click', () => {
+            html.classList.toggle('light');
+            const theme = html.classList.contains('light') ? 'light' : 'dark';
+            localStorage.setItem('theme', theme);
+            lucide.createIcons(); // Reinitialize icons after theme change
+        });
+
+        // Navigation - Active Link & Scrolled State
+        const navbar = document.getElementById('navbar');
+        const navLinks = document.querySelectorAll('.nav-link');
+        const sections = document.querySelectorAll('section[id]');
+
+        window.addEventListener('scroll', () => {
+            // Add scrolled class
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+
+            // Update active link
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (window.scrollY >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Mobile Menu
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const closeMobileMenu = document.getElementById('closeMobileMenu');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const overlay = document.getElementById('overlay');
+        const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.add('active');
+            overlay.classList.add('active');
+            lucide.createIcons();
+        });
+
+        closeMobileMenu.addEventListener('click', () => {
+            mobileMenu.classList.remove('active');
+            overlay.classList.remove('active');
+        });
+
+        overlay.addEventListener('click', () => {
+            mobileMenu.classList.remove('active');
+            overlay.classList.remove('active');
+        });
+
+        mobileNavLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+                overlay.classList.remove('active');
+            });
+        });
+
+        // Typewriter Effect
+        const typewriter = document.getElementById('typewriter');
+        const texts = [
+            'Business Analyst',
+            'Data-Driven Decision Maker',
+            'Problem Solver',
+            'Process Optimization Expert'
+        ];
+        let textIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+
+        function type() {
+            const currentText = texts[textIndex];
+            
+            if (isDeleting) {
+                typewriter.textContent = currentText.substring(0, charIndex - 1);
+                charIndex--;
+            } else {
+                typewriter.textContent = currentText.substring(0, charIndex + 1);
+                charIndex++;
+            }
+
+            let typeSpeed = isDeleting ? 50 : 100;
+
+            if (!isDeleting && charIndex === currentText.length) {
+                typeSpeed = 2000;
+                isDeleting = true;
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                textIndex = (textIndex + 1) % texts.length;
+                typeSpeed = 500;
+            }
+
+            setTimeout(type, typeSpeed);
+        }
+
+        type();
+
+        // Counter Animation
+        const counters = document.querySelectorAll('.counter');
+        const observerOptions = {
+            threshold: 0.5
+        };
+
+        const counterObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const counter = entry.target;
+                    const target = parseInt(counter.dataset.target);
+                    const duration = 2000;
+                    const increment = target / (duration / 16);
+                    let current = 0;
+
+                    const updateCounter = () => {
+                        current += increment;
+                        if (current < target) {
+                            counter.textContent = Math.ceil(current);
+                            requestAnimationFrame(updateCounter);
+                        } else {
+                            counter.textContent = target;
+                        }
+                    };
+
+                    updateCounter();
+                    counterObserver.unobserve(counter);
+                }
+            });
+        }, observerOptions);
+
+        counters.forEach(counter => counterObserver.observe(counter));
+
+        // Skill Progress Bars
+        const skillBars = document.querySelectorAll('.skill-progress-bar');
+        
+        const skillObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const bar = entry.target;
+                    const width = bar.dataset.width;
+                    setTimeout(() => {
+                        bar.style.width = width + '%';
+                    }, 300);
+                    skillObserver.unobserve(bar);
+                }
+            });
+        }, observerOptions);
+
+        skillBars.forEach(bar => skillObserver.observe(bar));
+
+        // Fade in on Scroll
+        const fadeElements = document.querySelectorAll('.fade-in-on-scroll');
+        
+        const fadeObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        fadeElements.forEach(element => fadeObserver.observe(element));
+
+        // Scroll to Top Button
+        const scrollToTopBtn = document.getElementById('scrollToTop');
+
+        scrollToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Contact Form
+        const contactForm = document.getElementById('contactForm');
+        
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Thank you for your message! I will get back to you soon.');
+            contactForm.reset();
+        });
+
+        // Smooth Scroll for all anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
